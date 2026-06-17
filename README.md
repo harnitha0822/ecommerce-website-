@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # E-Commerce CRUD Application
 
 A simple, beginner-friendly **E-Commerce CRUD Administration Dashboard** built using **Node.js, Express.js, MongoDB, and Mongoose**. This project is designed specifically as a college laboratory assessment or mini-project. It covers basic database relationships (Referencing) and provides full Create, Read, Update, and Delete operations for Users, Products, and Orders.
@@ -135,3 +136,6 @@ Here are standard questions examiners ask during practical evaluations (vivas) a
    - *Answer*: In `orderRoutes.js` under `POST /orders`, we query the product by `productId`. We check if `product.stock >= quantity`. If it is, we subtract the quantity from `product.stock`, call `product.save()`, and then write the order document to the database. If there is not enough stock, we return a `400 Bad Request` block.
 5. **What is CORS?**
    - *Answer*: Cross-Origin Resource Sharing. It is a security feature that controls how web browsers allow script-based network requests (like fetch) to call API servers hosted on different domains/ports.
+=======
+# ecommerce-website-
+>>>>>>> b8a7003960c2dcf187e1466e819bbb34b70a744a
