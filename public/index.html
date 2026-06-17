@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-Commerce CRUD Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>🛒 E-Commerce CRUD Admin Dashboard</h1>
+    <p>Simple Management System for Users, Products, and Orders</p>
+  </header>
+
+  <main class="dashboard-container">
+    
+    <!-- ================= USERS SECTION ================= -->
+    <section class="crud-card" id="users-section">
+      <h2>👤 Manage Users</h2>
+      
+      <!-- User input form -->
+      <form id="user-form" class="crud-form">
+        <input type="hidden" id="user-id"> <!-- Hidden input to hold MongoDB _id during edit -->
+        
+        <div class="form-group">
+          <label for="user-name">Full Name</label>
+          <input type="text" id="user-name" placeholder="John Doe" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="user-email">Email Address</label>
+          <input type="email" id="user-email" placeholder="john@example.com" required>
+        </div>
+        
+        <div class="form-buttons">
+          <button type="submit" id="user-submit-btn" class="btn btn-primary">Add User</button>
+          <button type="button" id="user-cancel-btn" class="btn btn-secondary hidden">Cancel</button>
+        </div>
+      </form>
+
+      <!-- Users data table -->
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="users-table-body">
+            <!-- Dynamic rows will be inserted here by script.js -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ================= PRODUCTS SECTION ================= -->
+    <section class="crud-card" id="products-section">
+      <h2>📦 Manage Products</h2>
+      
+      <!-- Product input form -->
+      <form id="product-form" class="crud-form">
+        <input type="hidden" id="product-id">
+        
+        <div class="form-group">
+          <label for="product-name">Product Name</label>
+          <input type="text" id="product-name" placeholder="Wireless Mouse" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="product-price">Price ($)</label>
+          <input type="number" id="product-price" placeholder="29.99" min="0" step="0.01" required>
+        </div>
+
+        <div class="form-group">
+          <label for="product-stock">Stock Quantity</label>
+          <input type="number" id="product-stock" placeholder="100" min="0" required>
+        </div>
+        
+        <div class="form-buttons">
+          <button type="submit" id="product-submit-btn" class="btn btn-primary">Add Product</button>
+          <button type="button" id="product-cancel-btn" class="btn btn-secondary hidden">Cancel</button>
+        </div>
+      </form>
+
+      <!-- Products data table -->
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Price</th>
+              <th>Stock</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="products-table-body">
+            <!-- Dynamic rows will be inserted here by script.js -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ================= ORDERS SECTION ================= -->
+    <section class="crud-card" id="orders-section">
+      <h2>📋 Manage Orders</h2>
+      
+      <!-- Order input form -->
+      <form id="order-form" class="crud-form">
+        <input type="hidden" id="order-id">
+        
+        <div class="form-group">
+          <label for="order-user-select">Select User</label>
+          <select id="order-user-select" required>
+            <option value="">-- Choose User --</option>
+            <!-- Dynamically populated from Users collection -->
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label for="order-product-select">Select Product</label>
+          <select id="order-product-select" required>
+            <option value="">-- Choose Product --</option>
+            <!-- Dynamically populated from Products collection -->
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="order-quantity">Quantity</label>
+          <input type="number" id="order-quantity" placeholder="1" min="1" required>
+        </div>
+        
+        <div class="form-buttons">
+          <button type="submit" id="order-submit-btn" class="btn btn-primary">Place Order</button>
+          <button type="button" id="order-cancel-btn" class="btn btn-secondary hidden">Cancel</button>
+        </div>
+      </form>
+
+      <!-- Orders data table -->
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>User</th>
+              <th>Product</th>
+              <th>Qty</th>
+              <th>Total Cost</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="orders-table-body">
+            <!-- Dynamic rows will be inserted here by script.js -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2026 College E-Commerce CRUD Lab Assessment. Simple static frontend using native fetch.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
